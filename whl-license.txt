@@ -1,0 +1,53 @@
+#!/bin/bash
+
+while true; do
+     echo -e "If others can modify the code closed source?[yes/no]\c"
+     read l1
+
+      if [ $l1 = "yes" ]; then
+         echo -e "Whether the copyright instructions must be placed on each modified document?[yes/no]\c"
+         read l2
+
+         if [ $l2 = "yes" ]; then
+             echo "Apache license"
+
+         elif [ $l2 = "no" ]; then
+             echo -e "The advertisement of derivative software, whether can use your name to promote?[yes/no]\c"
+             read l3
+
+                if [ $l3 = "yes" ]; then
+                   echo "MIT license"
+             
+                elif [ $l3 = "no" ]; then
+                     echo "BSD license"
+ 
+                else 
+                     echo "Error input"
+
+                fi
+         fi
+       elif [ $l1 = "no" ]; then
+          echo -e "新增代码是否采用同样许可证[yes/no]\c"
+          read l4
+
+            if [ $l4 = "yes" ]; then
+               echo "GPL license"
+
+            elif [ $l4 = "no" ]; then
+                  echo -e "是否需要对源码的修改之处，提供说明文档[yes/no]\c"
+                  read l5
+
+                if [ $l5 = "yes" ]; then
+                    echo "Mozilla license"
+               
+               elif [ $l5 = "no" ]; then
+                     echo "LGPL license"
+                fi
+            fi
+      
+      elif [ $l1 = "exit" ]; then
+              break
+      else
+              echo "Error input"
+      fi
+done
